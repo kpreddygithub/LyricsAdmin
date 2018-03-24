@@ -9,7 +9,7 @@
         android:name="org.kprsongs.SongsApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="Telugu Lyrics"
+        android:label="Lyrics Admin"
         android:hardwareAccelerated="true"
         android:theme="@style/MainAppTheme">
 
