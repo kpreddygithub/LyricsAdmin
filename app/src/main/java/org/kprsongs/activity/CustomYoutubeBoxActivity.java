@@ -11,7 +11,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /***********************************************************************************
  * The MIT License (MIT)

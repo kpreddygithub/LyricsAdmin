@@ -30,7 +30,7 @@ import org.kprsongs.activity.CustomYoutubeBoxActivity;
 import org.kprsongs.activity.SongContentViewActivity;
 import org.kprsongs.domain.Verse;
 import org.kprsongs.fragment.ListDialogFragment;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,7 +7,7 @@ import android.preference.DialogPreference;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /**
  * Created by K Purushotham Reddy on 12/4/2014.

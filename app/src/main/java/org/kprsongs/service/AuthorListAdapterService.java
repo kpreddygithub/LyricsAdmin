@@ -18,7 +18,7 @@ import org.kprsongs.activity.SongListActivity;
 import org.kprsongs.dao.AuthorDao;
 import org.kprsongs.domain.Author;
 import org.kprsongs.domain.AuthorSong;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

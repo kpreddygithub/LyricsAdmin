@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.SeekBar;
 
 import org.kprsongs.CommonConstants;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /**
  * Author:K Purushotham Reddy

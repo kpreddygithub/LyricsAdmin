@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /**
  * @Author : K Purushotham Reddy

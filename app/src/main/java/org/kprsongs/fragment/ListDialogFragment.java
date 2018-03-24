@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /**
  * Created by K Purushotham Reddy on 5/17/2015.

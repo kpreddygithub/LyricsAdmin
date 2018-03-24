@@ -19,7 +19,7 @@ import org.kprsongs.domain.Setting;
 import org.kprsongs.adapter.SongContentLandScapeViewerPageAdapter;
 import org.kprsongs.component.SlidingTabLayout;
 import org.kprsongs.service.UserPreferenceSettingService;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.util.ArrayList;
 

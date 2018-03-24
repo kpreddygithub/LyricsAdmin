@@ -20,7 +20,7 @@ import org.kprsongs.domain.Author;
 import org.kprsongs.domain.AuthorSong;
 import org.kprsongs.service.AuthorListAdapterService;
 import org.kprsongs.utils.CommonUtils;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

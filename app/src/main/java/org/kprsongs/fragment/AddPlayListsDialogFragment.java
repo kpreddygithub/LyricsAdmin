@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.kprsongs.service.CommonService;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.util.ArrayList;
 import java.util.List;

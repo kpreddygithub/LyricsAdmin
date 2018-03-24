@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /**
  * author:K Purushotham Reddy

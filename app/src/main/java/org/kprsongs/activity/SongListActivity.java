@@ -15,7 +15,7 @@ import android.widget.ListView;
 import org.kprsongs.domain.Song;
 import org.kprsongs.service.CommonService;
 import org.kprsongs.service.SongListAdapterService;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -35,7 +35,7 @@ import org.kprsongs.activity.ServiceSongListActivity;
 import org.kprsongs.utils.PropertyUtils;
 import org.kprsongs.CommonConstants;
 import org.kprsongs.utils.CommonUtils;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.io.File;
 import java.io.FileInputStream;

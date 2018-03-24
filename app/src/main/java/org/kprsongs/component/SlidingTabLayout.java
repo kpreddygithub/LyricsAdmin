@@ -15,7 +15,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /**
  * Created by K Purushotham Reddy on 8/16/15.

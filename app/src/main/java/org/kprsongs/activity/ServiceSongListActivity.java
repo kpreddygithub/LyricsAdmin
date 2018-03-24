@@ -37,7 +37,7 @@ import org.kprsongs.domain.Song;
 import org.kprsongs.domain.Verse;
 import org.kprsongs.parser.VerseParser;
 import org.kprsongs.utils.PropertyUtils;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.io.File;
 import java.util.ArrayList;

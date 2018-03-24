@@ -9,7 +9,7 @@ import org.kprsongs.fragment.DisplayNewSongsActivity;
 import org.kprsongs.fragment.HomeTabFragment;
 import org.kprsongs.fragment.AboutWebViewFragment;
 import org.kprsongs.fragment.AddSongFragment;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 

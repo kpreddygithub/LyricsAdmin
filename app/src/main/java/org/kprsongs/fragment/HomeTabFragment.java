@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import org.kprsongs.component.HomeViewerPageAdapter;
 import org.kprsongs.component.SlidingTabLayout;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.util.Arrays;
 import java.util.List;

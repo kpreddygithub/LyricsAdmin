@@ -9,7 +9,7 @@ import android.preference.PreferenceFragment;
 import org.kprsongs.SongsApplication;
 import org.kprsongs.activity.UserSettingActivity;
 import org.kprsongs.picker.ColorPickerPreference;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /**
  * Author:K Purushotham Reddy

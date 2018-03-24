@@ -10,7 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import org.kprsongs.fragment.SettingsPreferenceFragment;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /**
  * @Author : K Purushotham Reddy

@@ -15,7 +15,7 @@ import org.kprsongs.dao.SongBookDao;
 import org.kprsongs.dao.SongDao;
 import org.kprsongs.domain.Song;
 import org.kprsongs.domain.SongBook;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

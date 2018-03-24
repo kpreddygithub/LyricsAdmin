@@ -21,7 +21,7 @@ import org.kprsongs.dao.SongDao;
 import org.kprsongs.domain.FirebaseSong;
 import org.kprsongs.domain.Song;
 import org.kprsongs.domain.Verse;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 import org.kprsongs.service.UtilitiesService;
 
 import java.io.IOException;

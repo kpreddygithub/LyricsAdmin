@@ -13,7 +13,7 @@ import android.widget.TextView;
 import org.kprsongs.CommonConstants;
 import org.kprsongs.service.CustomTagColorService;
 import org.kprsongs.service.UserPreferenceSettingService;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 /**
  * author:K Purushotham Reddy

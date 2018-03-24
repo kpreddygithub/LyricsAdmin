@@ -26,7 +26,7 @@ import org.kprsongs.SongsApplication;
 import org.kprsongs.dao.SongDao;
 import org.kprsongs.task.AsyncGitHubRepositoryTask;
 import org.kprsongs.utils.PropertyUtils;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

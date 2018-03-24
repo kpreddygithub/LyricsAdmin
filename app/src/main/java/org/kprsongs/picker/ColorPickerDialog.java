@@ -23,7 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 public class ColorPickerDialog 
 	extends 

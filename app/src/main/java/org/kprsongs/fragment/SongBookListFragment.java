@@ -19,7 +19,7 @@ import org.kprsongs.dao.SongBookDao;
 import org.kprsongs.domain.SongBook;
 import org.kprsongs.service.SongBookListAdapterService;
 import org.kprsongs.utils.CommonUtils;
-import org.kprsongs.glorytogod.R;
+import org.kprsongs.admin.R;
 
 import java.util.ArrayList;
 import java.util.List;
