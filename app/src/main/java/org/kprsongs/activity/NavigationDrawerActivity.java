@@ -5,11 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
+import org.kprsongs.admin.R;
+import org.kprsongs.fragment.AddSongFragment;
 import org.kprsongs.fragment.DisplayNewSongsActivity;
 import org.kprsongs.fragment.HomeTabFragment;
-import org.kprsongs.fragment.AboutWebViewFragment;
-import org.kprsongs.fragment.AddSongFragment;
-import org.kprsongs.admin.R;
 
 import it.neokree.materialnavigationdrawer.MaterialNavigationDrawer;
 
@@ -24,8 +23,8 @@ public class NavigationDrawerActivity extends MaterialNavigationDrawer {
         this.addSubheader("");
         this.addSection(newSection(getString(R.string.home), R.drawable.ic_library_books_white, new HomeTabFragment()));
         this.addSection(newSection(getString(R.string.settings), R.drawable.ic_settings_white, getFragment(UserSettingActivity.class)));
-//        this.addSection(newSection(getString(R.string.add_song), android.R.drawable.ic_menu_add, new AddSongFragment()));
-//        this.addSection(newSection(getString(R.string.new_songs), android.R.drawable.ic_menu_add, getFragment(DisplayNewSongsActivity.class)));
+        this.addSection(newSection(getString(R.string.add_song), android.R.drawable.ic_menu_add, new AddSongFragment()));
+        this.addSection(newSection(getString(R.string.new_songs), android.R.drawable.ic_menu_add, getFragment(DisplayNewSongsActivity.class)));
 //        this.addSection(newSection(getString(R.string.about), R.drawable.about, new AboutWebViewFragment()));
     }
 

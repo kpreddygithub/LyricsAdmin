@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.util.Log;
 
 import org.apache.commons.lang3.StringUtils;
-import org.kprsongs.service.UtilitiesService;
 import org.kprsongs.domain.Song;
 import org.kprsongs.domain.Verse;
+import org.kprsongs.service.UtilitiesService;
 import org.kprsongs.utils.RegexUtils;
 
 import java.util.ArrayList;
@@ -69,9 +69,9 @@ public class SongDao extends AbstractDao {
         Song song = new Song();
         String whereClause = " title" + "=\"" + title + "\"";
         Cursor cursor = getDatabase().query(TABLE_NAME,
-                new String[]{"title", "lyrics", "verse_order", "search_title", "search_lyrics", "comments"}, whereClause, null, null, null, null);
+                new String[]{"title", "lyrics", "verse_order", "search_title", "search_lyrics", "comments", "id"}, whereClause, null, null, null, null);
         cursor.moveToFirst();
-        song = cursorToSong(cursor);
+        song = cursorToSongWithId(cursor);
         cursor.close();
         return song;
     }
@@ -126,6 +126,20 @@ public class SongDao extends AbstractDao {
         return song;
     }
 
+    private Song cursorToSongWithId(Cursor cursor) {
+        Song song = new Song();
+        song.setTitle(cursor.getString(0));
+        song.setLyrics(cursor.getString(1));
+        song.setVerseOrder(cursor.getString(2));
+        song.setSearchTitle(cursor.getString(3));
+        song.setSearchLyrics(cursor.getString(4));
+        song.setComments(cursor.getString(5));
+        song.setId(cursor.getInt(6));
+
+        return song;
+    }
+
+
     public Song findContentsByTitle(String title) {
         Song song = getSongByTitle(title);
         String lyrics = song.getLyrics();
@@ -156,8 +170,13 @@ public class SongDao extends AbstractDao {
             contents.addAll(contentsByDefaultOrder);
         }
         Song parsedSong = new Song();
+        parsedSong.setId(song.getId());
         parsedSong.setContents(contents);
+        parsedSong.setSearchTitle(song.getSearchTitle());
+        parsedSong.setTitle(song.getTitle());
+        parsedSong.setSearchLyrics(song.getSearchLyrics());
         parsedSong.setUrlKey(parseMediaUrlKey(song.getComments()));
+        parsedSong.setComments(song.getComments());
         Log.d(this.getClass().getName(), "Parsed media url : " + parsedSong.getUrlKey());
         parsedSong.setChord(parseChord(song.getComments()));
         Log.d(this.getClass().getName(), "Parsed chord  : " + parsedSong.getChord());
@@ -202,4 +221,18 @@ public class SongDao extends AbstractDao {
         long insertedRow = getDatabase().insert(TABLE_NAME, null, contenValues);
         return insertedRow;
     }
+
+    public long updateSong(String entireSong, String comments, String searchTitle, String searchLyrics, String title, int songId) {
+        ContentValues contenValues = new ContentValues();
+        contenValues.put("title", title);
+        contenValues.put("lyrics", entireSong);
+        contenValues.put("comments", comments);
+        contenValues.put("search_title", searchTitle);
+        contenValues.put("search_lyrics", searchLyrics);
+        long insertedRow = getDatabase().update(TABLE_NAME, contenValues, " id= ?",
+                new String[]{String.valueOf(songId)});
+        return insertedRow;
+    }
+
+
 }

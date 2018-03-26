@@ -5,12 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import org.kprsongs.admin.R;
 import org.kprsongs.domain.ContactInfo;
 import org.kprsongs.service.CustomTagColorService;
 import org.kprsongs.service.UserPreferenceSettingService;
-import org.kprsongs.admin.R;
 
 import java.util.List;
 
@@ -18,36 +19,31 @@ import java.util.List;
  * author: K Purushotham Reddy:
  * version: 2.1.0
  */
-public class SongCardViewAdapter extends RecyclerView.Adapter<SongCardViewAdapter.SongContentViewHolder>
-{
+public class SongCardViewAdapter extends RecyclerView.Adapter<SongCardViewAdapter.SongContentViewHolder> {
     private List<ContactInfo> contactList;
     private UserPreferenceSettingService preferenceSettingService;
     private CustomTagColorService customTagColorService;
     private List<String> songContent;
     private Context context;
 
-    public SongCardViewAdapter(List<String> songContent, Context context)
-    {
+    public SongCardViewAdapter(List<String> songContent, Context context) {
         this.context = context;
         this.songContent = songContent;
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return songContent.size();
     }
 
     @Override
-    public void onBindViewHolder(SongContentViewHolder songContentViewHolder, int position)
-    {
+    public void onBindViewHolder(SongContentViewHolder songContentViewHolder, int position) {
         String text = songContent.get(position);
         songContentViewHolder.textView.setText(text);
         loadTextStyle(songContentViewHolder.textView);
     }
 
-    private void loadTextStyle(TextView textView)
-    {
+    private void loadTextStyle(TextView textView) {
         customTagColorService = new CustomTagColorService();
         preferenceSettingService = new UserPreferenceSettingService();
         String text = textView.getText().toString();
@@ -60,20 +56,17 @@ public class SongCardViewAdapter extends RecyclerView.Adapter<SongCardViewAdapte
     }
 
     @Override
-    public SongContentViewHolder onCreateViewHolder(ViewGroup viewGroup, int i)
-    {
+    public SongContentViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_layout, viewGroup, false);
         return new SongContentViewHolder(itemView);
     }
 
-    public static class SongContentViewHolder extends RecyclerView.ViewHolder
-    {
-        protected TextView textView;
+    public static class SongContentViewHolder extends RecyclerView.ViewHolder {
+        protected EditText textView;
 
-        public SongContentViewHolder(View v)
-        {
+        public SongContentViewHolder(View v) {
             super(v);
-            textView = (TextView) v.findViewById(R.id.text);
+            textView = (EditText) v.findViewById(R.id.text);
         }
     }
 }

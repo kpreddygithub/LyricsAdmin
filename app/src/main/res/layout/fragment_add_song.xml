@@ -59,11 +59,33 @@
         android:layout_margin="10dp"
         android:maxLines="4" />
 
+    <EditText
+        android:id="@+id/search_title_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/youtube_et"
+        android:hint="Search title"
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="2000"
+        android:layout_margin="10dp"
+        android:maxLines="4" />
+
+    <EditText
+        android:id="@+id/search_lyrics_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_title_et"
+        android:hint="Search lyrics"
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="2000"
+        android:layout_margin="10dp"
+        android:maxLines="4" />
+
     <Button
         android:id="@+id/submit_song"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/youtube_et"
+        android:layout_below="@id/search_lyrics_et"
         android:layout_margin="10dp"
         android:background="@color/colorPrimary_1000"
         android:text="@string/submit"

@@ -12,16 +12,15 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.kprsongs.admin.R;
 import org.kprsongs.dao.SongDao;
 import org.kprsongs.domain.FirebaseSong;
 import org.kprsongs.domain.Song;
 import org.kprsongs.domain.Verse;
-import org.kprsongs.admin.R;
 import org.kprsongs.service.UtilitiesService;
 
 import java.io.IOException;
@@ -38,7 +37,7 @@ public class AddSongFragment extends Fragment {
     private EditText first_charanam_et;
     private EditText second_charanam_et;
     private EditText third_charanam_et;
-    private EditText youtube_et;
+    private EditText youtube_et, search_title_et, search_lyrics_et;
     private String entireSong, title, alternate_title, search_title, search_lyrics;
     private Button export_db;
     private SongDao songDao;
@@ -55,6 +54,8 @@ public class AddSongFragment extends Fragment {
         second_charanam_et = (EditText) rootView.findViewById(R.id.second_charanam_et);
         third_charanam_et = (EditText) rootView.findViewById(R.id.third_charanam_et);
         youtube_et = (EditText) rootView.findViewById(R.id.youtube_et);
+        search_title_et = (EditText) rootView.findViewById(R.id.search_title_et);
+        search_lyrics_et = (EditText) rootView.findViewById(R.id.search_lyrics_et);
         submit_song = (Button) rootView.findViewById(R.id.submit_song);
         export_db = (Button) rootView.findViewById(R.id.export_db);
 
@@ -63,41 +64,7 @@ public class AddSongFragment extends Fragment {
 
         songs = songDao.findAll();
 
-        for (int i = 0; i < songs.size(); i++) {
-            Song song = songs.get(i);
-            FirebaseSong firebaseSong = new FirebaseSong();
-            firebaseSong.setSongNumber(database.child("songs").push().getKey());
-            firebaseSong.setId(song.getId());
-            firebaseSong.setTitle(song.getTitle());
-            firebaseSong.setAlternateTitle(song.getAlternateTitle());
-            firebaseSong.setSearchTitle(song.getSearchTitle());
-            firebaseSong.setSearchLyrics(song.getSearchLyrics());
-            firebaseSong.setSongBookId(1412);
-            firebaseSong.setComments(song.getComments());
-
-
-            String lyrics = song.getLyrics();
-            List<Verse> verseList = utilitiesService.getVerse(lyrics);
-            JSONArray lyricsArray = new JSONArray();
-            for (int k = 0; k < verseList.size(); k++) {
-                Verse verse = verseList.get(k);
-                JSONObject jsonObject = new JSONObject();
-                try {
-                    jsonObject.put("content", verse.getContent());
-                    jsonObject.put("label", verse.getLabel());
-                    jsonObject.put("type", verse.getType());
-                    jsonObject.put("order", verse.getVerseOrder());
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                lyricsArray.put(jsonObject);
-            }
-
-            firebaseSong.setLyrics(lyricsArray.toString());
-            database.child("songs").child(firebaseSong.getSongNumber()).setValue(firebaseSong);
-
-        }
+//        exportToFireBase();
 
         submit_song.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +76,8 @@ public class AddSongFragment extends Fragment {
                 String second_charanam = second_charanam_et.getText().toString();
                 String third_charanam = third_charanam_et.getText().toString();
                 String youtubeLink = youtube_et.getText().toString();
+                String searchTitle = search_title_et.getText().toString();
+                String searchLyrics = search_lyrics_et.getText().toString();
 
                 if (third_charanam.isEmpty()) {
                     entireSong = "<?xml version='1.0' encoding='UTF-8'?>\n" +
@@ -139,8 +108,8 @@ public class AddSongFragment extends Fragment {
                     title = pallavi.substring(0, second_occurence_of_double_qoutes);
                 }
                 alternate_title = title;
-                search_title = title;
-                search_lyrics = title;
+                search_title = searchTitle;
+                search_lyrics = searchLyrics;
 
                 Log.d("lyrics", "entireSong" + entireSong);
                 Log.d("lyrics", "title" + title);
@@ -196,6 +165,44 @@ public class AddSongFragment extends Fragment {
             }
         });
         return rootView;
+    }
+
+    private void exportToFireBase() {
+        for (int i = 0; i < songs.size(); i++) {
+            Song song = songs.get(i);
+            FirebaseSong firebaseSong = new FirebaseSong();
+            firebaseSong.setSongNumber(database.child("songs").push().getKey());
+            firebaseSong.setId(song.getId());
+            firebaseSong.setTitle(song.getTitle());
+            firebaseSong.setAlternateTitle(song.getAlternateTitle());
+            firebaseSong.setSearchTitle(song.getSearchTitle());
+            firebaseSong.setSearchLyrics(song.getSearchLyrics());
+            firebaseSong.setSongBookId(1412);
+            firebaseSong.setComments(song.getComments());
+
+
+            String lyrics = song.getLyrics();
+            List<Verse> verseList = utilitiesService.getVerse(lyrics);
+            JSONArray lyricsArray = new JSONArray();
+            for (int k = 0; k < verseList.size(); k++) {
+                Verse verse = verseList.get(k);
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("content", verse.getContent());
+                    jsonObject.put("label", verse.getLabel());
+                    jsonObject.put("type", verse.getType());
+                    jsonObject.put("order", verse.getVerseOrder());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                lyricsArray.put(jsonObject);
+            }
+
+            firebaseSong.setLyrics(lyricsArray.toString());
+            database.child("songs").child(firebaseSong.getSongNumber()).setValue(firebaseSong);
+
+        }
     }
 
 }
